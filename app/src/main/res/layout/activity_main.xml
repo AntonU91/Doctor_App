@@ -25,49 +25,76 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="24dp" />
 
-<!--        <androidx.constraintlayout.helper.widget.Flow-->
-<!--            android:layout_marginTop="68dp"-->
-<!--            android:id="@+id/navigation_bar_item_icon_view"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@id/start_guideline"-->
-<!--            />-->
+        <!--        <androidx.constraintlayout.helper.widget.Flow-->
+        <!--            android:layout_marginTop="68dp"-->
+        <!--            android:id="@+id/navigation_bar_item_icon_view"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/start_guideline"-->
+        <!--            />-->
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/navigation_drawer_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_vector_top_line"
-            />
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_icons_menu_burger" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_account_logo_button"
+            android:id="@+id/user_account_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:layout_marginStart="295dp"
+            android:layout_marginTop="40dp"
+            android:background="?attr/selectableItemBackground"
             android:src="@drawable/bung_1"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/user_logo_section_barrier"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="navigation_drawer_button,user_account_logo_button"/>
+            app:constraint_referenced_ids="navigation_drawer_button,user_account_logo" />
+
         <TextView
             android:id="@+id/title"
-            android:text="@string/title_text"
             style="@style/find_your_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/user_logo_section_barrier"
+            android:text="@string/title_text"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline" />
+            app:layout_constraintTop_toBottomOf="@id/user_logo_section_barrier" />
 
-        
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@id/title">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_input_hint"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ripple"
+            android:drawableTop="@drawable/ic_consultation_icon"
+            android:text="Consultaion"
+            app:layout_constraintTop_toBottomOf="@id/text_input_field"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
