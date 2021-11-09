@@ -323,7 +323,8 @@
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@id/rating_counter_1"
-            app:layout_constraintTop_toBottomOf="@id/hospital_name" />
+            app:layout_constraintTop_toBottomOf="@id/hospital_name"
+            android:onClick="openButtonClicked"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

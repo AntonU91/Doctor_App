@@ -111,4 +111,11 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
     }
+
+    public void openButtonClicked(View view) {
+        CharSequence popUpText = "Open description of this doctor";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(MainActivity.this, popUpText, duration);
+        toast.show();
+    }
 }
