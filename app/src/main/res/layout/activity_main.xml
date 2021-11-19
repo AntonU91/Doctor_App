@@ -16,25 +16,22 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="24dp" />
+            app:layout_constraintGuide_begin="@dimen/default_margin" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/end_guideline"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="24dp" />
+            app:layout_constraintGuide_end="@dimen/default_margin" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:onClick="menuSendwichButtonClicked"
-            android:padding="0dp"
-            android:background="@drawable/ripple_sendwich_menu"
             android:id="@+id/navigation_drawer_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/ripple_sendwich_menu"
+            android:onClick="menuSendwichButtonClicked"
             android:src="@drawable/ic_icons_menu_burger"
-            app:layout_constraintEnd_toStartOf="@id/user_account_logo"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/start_guideline"
             app:layout_constraintTop_toTopOf="@id/user_account_logo" />
 
@@ -42,13 +39,13 @@
             android:id="@+id/user_account_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="295dp"
             android:layout_marginTop="40dp"
             android:background="?attr/selectableItemBackground"
             android:src="@drawable/bung_1"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Remove redundant Barrier -->
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/user_logo_section_barrier"
             android:layout_width="0dp"
@@ -59,9 +56,10 @@
         <TextView
             android:id="@+id/title"
             style="@style/find_your_d"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
+            android:gravity="center"
             android:text="@string/title_text"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintStart_toEndOf="@id/start_guideline"
@@ -73,8 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/text_input_hint"
-            app:endIconMode="custom"
             app:endIconDrawable="@drawable/ic_search"
+            app:endIconMode="custom"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintStart_toEndOf="@id/start_guideline"
             app:layout_constraintTop_toBottomOf="@id/title">
@@ -85,138 +83,116 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/service_options"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:constraint_referenced_ids="button_consultation,button_dental,button_heart,button_hospitals,button_medicines,button_physician,button_skin,button_surgeon"
-            app:flow_horizontalBias="0"
-            app:flow_horizontalStyle="packed"
-            app:flow_verticalStyle="spread"
-            app:flow_wrapMode="aligned"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_consultation"
-            android:onClick="buttonClicked"
             style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:drawableTop="@drawable/ic_consultation_icon"
-            android:padding="0dp"
+            android:onClick="buttonClicked"
             android:text="@string/consultation"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintWidth_default="wrap" />
+            app:layout_constraintEnd_toStartOf="@+id/button_dental"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_field" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_dental"
-            android:onClick="buttonClicked"
             style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:drawableTop="@drawable/ic_consultation_icon"
-            android:padding="0dp"
+            android:onClick="buttonClicked"
             android:text="@string/dental"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+            app:layout_constraintEnd_toStartOf="@+id/button_heart"
+            app:layout_constraintStart_toEndOf="@+id/button_consultation"
+            app:layout_constraintTop_toBottomOf="@id/text_input_field" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_heart"
-            android:onClick="buttonClicked"
             style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:drawableTop="@drawable/ic_consultation_icon"
+            android:onClick="buttonClicked"
             android:text="@string/heart"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+            app:layout_constraintEnd_toStartOf="@+id/button_hospitals"
+            app:layout_constraintStart_toEndOf="@+id/button_dental"
+            app:layout_constraintTop_toBottomOf="@id/text_input_field" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_hospitals"
-            android:onClick="buttonClicked"
             style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:drawableTop="@drawable/ic_consultation_icon"
+            android:onClick="buttonClicked"
             android:text="@string/hospitals"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+            app:layout_constraintStart_toEndOf="@+id/button_heart"
+            app:layout_constraintTop_toBottomOf="@id/text_input_field" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_medicines"
-            android:onClick="buttonClicked"
-            style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/ripple"
-            android:drawableTop="@drawable/ic_consultation_icon"
-            android:text="@string/medicines"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_medicines"
+                    style="@style/Widget.AppCompat.Button.Borderless.MyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple"
+                    android:drawableTop="@drawable/ic_consultation_icon"
+                    android:onClick="buttonClicked"
+                    android:text="@string/medicines"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/button_consultation"
+                    />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_physician"
-            android:onClick="buttonClicked"
-            style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/ripple"
-            android:drawableTop="@drawable/ic_consultation_icon"
-            android:text="@string/physician"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/button_physician"-->
+        <!--            style="@style/Widget.AppCompat.Button.Borderless.MyButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:background="@drawable/ripple"-->
+        <!--            android:drawableTop="@drawable/ic_consultation_icon"-->
+        <!--            android:onClick="buttonClicked"-->
+        <!--            android:text="@string/physician"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/end_guideline"-->
+        <!--            app:layout_constraintHeight_default="wrap"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/start_guideline"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/text_input_field"-->
+        <!--            app:layout_constraintWidth_default="wrap" />-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_skin"
-            android:onClick="buttonClicked"
-            style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/ripple"
-            android:drawableTop="@drawable/ic_consultation_icon"
-            android:text="@string/skin"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/button_skin"-->
+        <!--            style="@style/Widget.AppCompat.Button.Borderless.MyButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:background="@drawable/ripple"-->
+        <!--            android:drawableTop="@drawable/ic_consultation_icon"-->
+        <!--            android:onClick="buttonClicked"-->
+        <!--            android:text="@string/skin"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/end_guideline"-->
+        <!--            app:layout_constraintHeight_default="wrap"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/start_guideline"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/text_input_field"-->
+        <!--            app:layout_constraintWidth_default="wrap" />-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_surgeon"
-            android:onClick="buttonClicked"
-            style="@style/Widget.AppCompat.Button.Borderless.MyButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/ripple"
-            android:drawableTop="@drawable/ic_consultation_icon"
-            android:text="@string/surgeon"
-            app:layout_constraintEnd_toStartOf="@id/end_guideline"
-            app:layout_constraintHeight_default="wrap"
-            app:layout_constraintStart_toEndOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_input_field"
-            app:layout_constraintWidth_default="wrap" />
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/button_surgeon"-->
+        <!--            style="@style/Widget.AppCompat.Button.Borderless.MyButton"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:background="@drawable/ripple"-->
+        <!--            android:drawableTop="@drawable/ic_consultation_icon"-->
+        <!--            android:onClick="buttonClicked"-->
+        <!--            android:text="@string/surgeon"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/end_guideline"-->
+        <!--            app:layout_constraintHeight_default="wrap"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/start_guideline"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/text_input_field"-->
+        <!--            app:layout_constraintWidth_default="wrap" />-->
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/top_doctors"
@@ -319,12 +295,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:background="@drawable/ripple_open_button"
+            android:onClick="openButtonClicked"
             android:src="@drawable/ic_open_button"
             app:layout_constraintEnd_toStartOf="@id/end_guideline"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@id/rating_counter_1"
-            app:layout_constraintTop_toBottomOf="@id/hospital_name"
-            android:onClick="openButtonClicked"/>
+            app:layout_constraintTop_toBottomOf="@id/hospital_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
